@@ -1,0 +1,49 @@
+<template name="dj_view">
+  <div class="dj-view">
+  </div>
+</template>
+
+<template name="dj_events">
+  <div class="event-list">
+    <h4>Event Details</h4>
+    {{#if eventList}}
+    	<select>
+        {{#each eventList}}
+          <option value={{id}}>{{name}}</option>
+        {{/each}}
+      </select>
+    {{/if}}
+    <div class="input-append">
+      <input class="span3" id="appendedInputButton" type="text" placeholder="Event name">
+      <button class="btn btn-primary" type="button" id="create-event-btn">Create Event</button>
+    </div>
+  </div>
+</template>
+
+<template name="dj_upload_playlist">
+  <div class="drop-zone">
+    <div class="inner-drop-zone">
+      Drop Playlist Here (.m3u only)
+    </div>
+  </div>
+  <ul class="playlist">
+  </ul>
+  <br />
+  <button class="btn btn-inverse save hide">Save Playlist</button>
+</template>
+
+<!-- <template name="">
+
+</template>
+
+<template name="">
+
+</template>
+
+<template name="">
+
+</template>
+
+<template name="">
+
+</template> -->

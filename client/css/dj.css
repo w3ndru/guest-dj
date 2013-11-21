@@ -1,0 +1,52 @@
+label {
+  margin: 20px 20px 0px 20px;
+  display: inline;
+}
+
+.dj-view {
+  padding: 0px 0px 50px 0px;
+}
+
+.event-list {
+  padding: 20px 35px;
+}
+
+.event-list select {
+  margin-right: 10px;
+}
+
+.upload {
+  background-color: #fafafa;
+  padding: 20px 40px;
+}
+
+.drop-zone {
+  text-align: center;
+  font-size: 1.5em;
+  color: #aaa;
+  font-weight: 100;
+  cursor: default;
+}
+
+.inner-drop-zone {
+  padding: 20px;
+  margin: 15px;
+  border: 2px dashed #ddd;
+  border-radius: 10px;
+  letter-spacing: 0.1em;
+
+  transition: background-color 0.25s ease 0s;
+  -o-transition: background-color 0.25s ease 0s;
+  -ms-transition: background-color 0.25s ease 0s;
+  -moz-transition: background-color 0.25s ease 0s;
+  -webkit-transition: background-color 0.25s ease 0s;
+}
+
+.inner-drop-zone:hover {
+  background-color: #f0f0f0;
+  color: #999;
+}
+
+.dialog {
+  margin: 10px 0px;
+}

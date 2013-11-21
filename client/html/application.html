@@ -1,0 +1,21 @@
+<head>
+  <title>guest-dj</title>
+  <link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  {{> application}}
+</body>
+
+<template name="application">	
+	{{loginButtons}}
+	{{#if currentUser}}
+		{{#if isDJ}}
+			{{> dj_view}}
+		{{else}}
+		  {{> guest_view}}
+		{{/if}}
+	{{else}}
+		{{> marketing_view}}
+	{{/if}}
+</template>
