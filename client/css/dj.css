@@ -7,6 +7,53 @@ label {
   padding: 0px 0px 50px 0px;
 }
 
+.dj-view .logo-text {
+  font-size: 20px;
+  letter-spacing: 2px;
+  line-height: 20px;
+  padding: 0px 2vw;
+}
+
+.dj-nav {
+  width: 13vw;
+  margin-left: 2vw;
+  margin-top: 30px;
+}
+
+.dj-nav a {
+  display: block;
+  color: #eee8d5;
+  background-color: #586e75;
+  margin-bottom: 1px;
+  border-radius: 2px 0px 0px 2px;
+  line-height: 30px;
+  padding-left: 40%;
+  letter-spacing: 2px;
+
+  transition: all 0.125s ease 0s;
+  -o-transition: all 0.125s ease 0s;
+  -ms-transition: all 0.125s ease 0s;
+  -moz-transition: all 0.125s ease 0s;
+  -webkit-transition: all 0.125s ease 0s;
+}
+
+.dj-nav a:hover, .dj-nav a.active {
+  background-color: #93a1a1;
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.dj-content {
+  background-color: #93a1a1;
+  position: absolute;
+  right: 0px;
+  top: 40px;
+  height: 90vh;
+  width: 85vw;
+  border-radius: 2px 0px 0px 2px;
+}
+
 .event-list {
   padding: 20px 35px;
 }

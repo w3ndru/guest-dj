@@ -59,6 +59,10 @@ ul li:nth-child(even) {
   float: right;
 }
 
+#login-buttons #login-sign-in-link {
+  color: #cb4b16;
+}
+
 #login-buttons #login-dropdown-list .login-button {
   background: #6c71c4;
   box-shadow: none;

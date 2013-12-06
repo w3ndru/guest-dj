@@ -1,12 +1,10 @@
 if(Meteor.isClient) {
-	Template.application.isDJ = function() {
-    // debugger
-		return true;
-	};
-}
+  DJs = new Meteor.Collection("djs");
+  Meteor.subscribe("djs");
 
-if(Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+	Template.application.isDJ = function() {
+    var userID = Meteor.user()._id;
+    var result = DJs.find({userID: userID}).fetch();
+		return !!result.length;
+	};
 }
