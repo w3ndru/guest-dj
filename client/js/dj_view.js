@@ -1,21 +1,7 @@
 if(Meteor.isClient) {
-  Template.dj_events.eventList = function() {
-    if(Meteor.user()) {
-      return [];
-    } else {
-      return [];
-    }
-  };
-
-  Template.dj_events.events({
-
-  });
-
-  Template.dj_view.userName = function() {
-    return "rockMyWorld";
-  };
-
+  Session.set('currentSection', 'home');
   Template.dj_view.addDialog = false;
+  Template.dj_view.playListFile = null;
 
   Template.dj_view.events({
     'dragover .drop-zone' : function(e) {
@@ -38,14 +24,27 @@ if(Meteor.isClient) {
         var text = this.result.split('\n');
         var html = '';
         
-        for(var i = 1; i < text.length - 1; i++) {
-          html += '<li>' + text[i] + '</li>';
+        for(var i = 0; i < text.length - 1; i++) {
+          var data = text[i].trim();
+          if(data[0] == '#') { continue; }
+
+          html += '<li>' + data + '</li>';
         }
 
         $('ul.playlist').html(html);
         Template.dj_view.playListFile = text;
+        debugger
         $('button.save').removeClass('hide');
       };
+    },
+
+    'click .dj-nav a': function(e) {
+      if($(e.target).hasClass('active')) { return; }
+
+      $('.dj-nav a').removeClass('active');
+      $(e.target).addClass('active');
+
+      Session.set('currentSection', $(e.target).data('section'));
     }
 
   });

@@ -8,33 +8,64 @@
 
 <template name="dj_nav">
   <nav class="dj-nav">
-    <a id="dj-nav-home" class="active">Home</a>
-    <a id="dj-nav-events">Events</a>
-    <a id="dj-nav-playlists">Playlists</a>
-    <a id="dj-nav-settings">Settings</a>
+    <a id="dj-nav-home" data-section="home" class="active">Home</a>
+    <a id="dj-nav-events" data-section="events">Events</a>
+    <a id="dj-nav-playlists" data-section="playlists">Playlists</a>
+    <a id="dj-nav-settings" data-section="settings">Settings</a>
   </nav>
 </template>
 
 <template name="dj_content">
   <div class="dj-content">
-
+    {{#if currentSectionIs "home"}}
+      <h4>DJ Home</h4>
+    {{/if}}
+    {{#if currentSectionIs "events"}}
+      {{> dj_events}}
+      {{> dj_playlist}}
+    {{/if}}
+    {{#if currentSectionIs "playlists"}}
+      <h4>Playlists</h4>
+    {{/if}}
+    {{#if currentSectionIs "settings"}}
+      <h4>Settings</h4>
+    {{/if}}
   </div>
 </template>
 
 <template name="dj_events">
-  <div class="event-list">
-    <h4>Event Details</h4>
-    {{#if eventList}}
-    	<select>
-        {{#each eventList}}
-          <option value={{id}}>{{name}}</option>
-        {{/each}}
-      </select>
-    {{/if}}
-    <div class="input-append">
-      <input class="span3" id="appendedInputButton" type="text" placeholder="Event name">
-      <button class="btn btn-primary" type="button" id="create-event-btn">Create Event</button>
+  <div class="dj-events clearfix">
+    <h4>{{titleText}}</h4>
+    <div class="event-list">
+      {{#if eventList}}
+      	<select>
+          <option value="--">--</option>
+          {{#each eventList}}
+            <option value="{{name}}">{{name}}</option>
+          {{/each}}
+        </select>
+        <br />
+      {{/if}}
+
+      <div class="input-append">
+        <input class="span2" id="new-even-name" type="text" placeholder="Event name">
+        <button class="btn btn-primary" type="button" id="create-event-btn">Create</button>
+      </div>
     </div>
+  </div>
+</template>
+
+<template name="dj_playlist">
+  <div class="dj-playlist">
+    {{#if eventSelected}}
+      <h5>Playlist for {{eventName}}</h5>
+      {{#unless hasPlaylist}}
+        {{> dj_upload_playlist}}
+      {{/unless}}
+      <ul class="playlist"></ul>
+    {{else}}
+      <h5>No Playlists to display</h5>
+    {{/if}}
   </div>
 </template>
 
@@ -44,24 +75,5 @@
       Drop Playlist Here (.m3u only)
     </div>
   </div>
-  <ul class="playlist">
-  </ul>
-  <br />
   <button class="btn btn-inverse save hide">Save Playlist</button>
 </template>
-
-<!-- <template name="">
-
-</template>
-
-<template name="">
-
-</template>
-
-<template name="">
-
-</template>
-
-<template name="">
-
-</template> -->

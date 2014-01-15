@@ -41,7 +41,7 @@ label {
   background-color: #93a1a1;
   text-decoration: none;
   cursor: pointer;
-  color: #ffffff;
+  color: whitesmoke;
 }
 
 .dj-content {
@@ -52,14 +52,25 @@ label {
   height: 90vh;
   width: 85vw;
   border-radius: 2px 0px 0px 2px;
+  box-sizing: border-box;
+  padding: 15px 35px;
+  color: whitesmoke;
+  overflow: auto;
+}
+
+.dj-content h4 {
+  display: inline-block;
 }
 
 .event-list {
-  padding: 20px 35px;
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
 }
 
 .event-list select {
   margin-right: 10px;
+  width: 208px;
 }
 
 .upload {
@@ -69,18 +80,19 @@ label {
 
 .drop-zone {
   text-align: center;
-  font-size: 1.5em;
-  color: #aaa;
   font-weight: 100;
   cursor: default;
+  display: inline-block;
+  width: 40vw;
 }
 
 .inner-drop-zone {
-  padding: 20px;
-  margin: 15px;
-  border: 2px dashed #ddd;
-  border-radius: 10px;
+  padding: 4px;
+  border: 1px dashed #ddd;
+  border-radius: 5px;
   letter-spacing: 0.1em;
+  color: whitesmoke;
+  font-size: 15px;
 
   transition: background-color 0.25s ease 0s;
   -o-transition: background-color 0.25s ease 0s;
@@ -90,10 +102,14 @@ label {
 }
 
 .inner-drop-zone:hover {
-  background-color: #f0f0f0;
+  background-color: whitesmoke;
   color: #999;
 }
 
-.dialog {
+ul.playlist {
   margin: 10px 0px;
+}
+
+ul.playlist li:nth-child(even) {
+  background-color: #586e75;
 }

@@ -36,10 +36,10 @@ ul li {
   padding: 5px 20px;
 }
 
-ul li:nth-child(even) {
+/*ul li:nth-child(even) {
   background-color: #f5f5f5;
 }
-
+*/
 #login-buttons {
   position: absolute;
   right: 20px;
