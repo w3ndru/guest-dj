@@ -12,3 +12,7 @@ if(Meteor.isClient) {
 		return !!result.length;
 	};
 }
+
+Meteor.Router.add({
+
+});
