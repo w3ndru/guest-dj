@@ -21,19 +21,27 @@ if(Meteor.isClient) {
       reader.readAsText(f);
 
       reader.onload = function() {
-        var text = this.result.split('\n');
+        var text = this.result.split('#');
         var html = '';
-        
-        for(var i = 0; i < text.length - 1; i++) {
-          var data = text[i].trim();
-          if(data[0] == '#') { continue; }
+        var data = [];
 
-          html += '<li>' + data + '</li>';
+        if(text[1].indexOf('EXTM3U') < 0) { return; }
+        
+        for(var i = 1; i < text.length - 1; i++) {
+          var info = text[i].trim();
+
+          if(info.indexOf('EXTINF') === 0) {
+            var details = /^EXTINF:\d+,(.+)/.exec(info)[1];
+            var artist =  details.split(' - ')[1];
+            var title = details.split(' - ')[0];
+            
+            data.push({artist: artist, title: title});
+            html += '<li>' + artist + ' - ' + title + '</li>';
+          }
         }
 
         $('ul.playlist').html(html);
-        Template.dj_view.playListFile = text;
-        debugger
+        Template.dj_view.playListFile = data;
         $('button.save').removeClass('hide');
       };
     },

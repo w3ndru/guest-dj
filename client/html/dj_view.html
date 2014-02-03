@@ -23,6 +23,7 @@
     {{#if currentSectionIs "events"}}
       {{> dj_events}}
       {{> dj_playlist}}
+      <ul class="playlist"></ul>
     {{/if}}
     {{#if currentSectionIs "playlists"}}
       <h4>Playlists</h4>
@@ -59,10 +60,9 @@
   <div class="dj-playlist">
     {{#if eventSelected}}
       <h5>Playlist for {{eventName}}</h5>
-      {{#unless hasPlaylist}}
+      {{#unless hasPlaylist }}
         {{> dj_upload_playlist}}
       {{/unless}}
-      <ul class="playlist"></ul>
     {{else}}
       <h5>No Playlists to display</h5>
     {{/if}}

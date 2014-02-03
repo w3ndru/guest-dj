@@ -37,7 +37,18 @@ if(Meteor.isClient) {
   });
 
   Template.dj_playlist.hasPlaylist = function() {
-    // debugger
+    var list = Playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
+    
+    if(!list.length) { return false; }
+
+    var html = '';
+    // Session.set('currentPlaylist', list);
+    list[0].tracks.forEach(function(item) {
+      html += '<li>' + item.artist + ' - ' + item.title + '</li>';
+    });
+    debugger
+    $('ul.playlist').html(html);
+    return !!list;
   };
 
   Template.dj_playlist.eventSelected = function() {
@@ -47,4 +58,14 @@ if(Meteor.isClient) {
   Template.dj_playlist.eventName = function() {
     return Session.get('currentEvent');
   };
+
+  Template.dj_upload_playlist.events({
+    'click button.btn-inverse.save': function(e) {
+      var eventName = Session.get('currentEvent');
+      var userId = Meteor.userId();
+      var playlist = Template.dj_view.playListFile;
+
+      Playlists.insert({userId: userId, 'event': eventName, tracks: playlist});
+    }
+  });
 }
