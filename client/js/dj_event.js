@@ -1,15 +1,10 @@
 if(Meteor.isClient) {
-  Events = new Meteor.Collection('events');
-  Playlists = new Meteor.Collection('playlists');
-  Meteor.subscribe("events");
-  Meteor.subscribe("playlists");
-
   Template.dj_events.titleText = function() {
     return Session.get('currentEvent') || 'Select or create new event';
   };
 
   Template.dj_events.eventList = function() {
-    return Events.find({userId: Meteor.userId()}).fetch();
+    return GD.events.find({userId: Meteor.userId()}).fetch();
   };
 
   Template.dj_events.events({
@@ -19,7 +14,7 @@ if(Meteor.isClient) {
 
       if(!eventName) { return; }
 
-      Events.insert({userId: Meteor.userId(), name: eventName, playListId: null});
+      GD.events.insert({userId: Meteor.userId(), name: eventName, playListId: null});
       Session.set('currentEvent', eventName);
       input.val('');
     },
@@ -37,7 +32,7 @@ if(Meteor.isClient) {
   });
 
   Template.dj_playlist.hasPlaylist = function() {
-    var list = Playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
+    var list = GD.playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
     
     if(!list.length) { return false; }
 
@@ -46,7 +41,7 @@ if(Meteor.isClient) {
     list[0].tracks.forEach(function(item) {
       html += '<li>' + item.artist + ' - ' + item.title + '</li>';
     });
-    debugger
+
     $('ul.playlist').html(html);
     return !!list;
   };
@@ -65,7 +60,7 @@ if(Meteor.isClient) {
       var userId = Meteor.userId();
       var playlist = Template.dj_view.playListFile;
 
-      Playlists.insert({userId: userId, 'event': eventName, tracks: playlist});
+      GD.playlists.insert({userId: userId, 'event': eventName, tracks: playlist});
     }
   });
 }

@@ -38,15 +38,13 @@
   <div class="dj-events clearfix">
     <h4>{{titleText}}</h4>
     <div class="event-list">
-      {{#if eventList}}
-      	<select>
-          <option value="--">--</option>
-          {{#each eventList}}
-            <option value="{{name}}">{{name}}</option>
-          {{/each}}
-        </select>
-        <br />
-      {{/if}}
+    	<select>
+        <option value="--">--</option>
+        {{#each eventList}}
+          <option value="{{name}}">{{name}}</option>
+        {{/each}}
+      </select>
+      <br />
 
       <div class="input-append">
         <input class="span2" id="new-even-name" type="text" placeholder="Event name">
