@@ -24,6 +24,7 @@
       {{> dj_events}}
       {{> dj_playlist}}
       <ul class="playlist"></ul>
+      {{> playlist_info}}
     {{/if}}
     {{#if currentSectionIs "playlists"}}
       <h4>Playlists</h4>
@@ -75,3 +76,13 @@
   </div>
   <button class="btn btn-inverse save hide">Save Playlist</button>
 </template>
+
+<template name="playlist_info">
+  <div class='info-graph'>
+    <div>
+      {{GD.currentPlaylistUrl}}
+    </div>
+    <img src="{{GD.currentPlaylistQRUrl}}"/>
+  </div>
+</template>
+

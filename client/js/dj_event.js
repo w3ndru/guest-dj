@@ -25,20 +25,23 @@ if(Meteor.isClient) {
 
       if(eventName == '--') {
         Session.set('currentEvent', null);
+        Session.set('currentPlaylist', null);
       } else {
         Session.set('currentEvent', eventName);
+        var list = GD.playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
+        Session.set('currentPlaylist', list[0]);
       }
     }
   });
 
   Template.dj_playlist.hasPlaylist = function() {
-    var list = GD.playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
-    
-    if(!list.length) { return false; }
+    var list = Session.get('currentPlaylist');
+
+    if(!list) { return false; }
 
     var html = '';
-    // Session.set('currentPlaylist', list);
-    list[0].tracks.forEach(function(item) {
+
+    list.tracks.forEach(function(item) {
       html += '<li>' + item.artist + ' - ' + item.title + '</li>';
     });
 

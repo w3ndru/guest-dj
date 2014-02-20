@@ -4,10 +4,10 @@
 </head>
 
 <body>
-  {{> application}}
+  {{renderPage}}
 </body>
 
-<template name="application">	
+<template name="application">
 	{{loginButtons}}
 	{{#if currentUser}}
 		{{#if isDJ}}
