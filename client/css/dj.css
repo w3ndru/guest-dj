@@ -113,3 +113,11 @@ ul.playlist {
 ul.playlist li:nth-child(even) {
   background-color: #586e75;
 }
+
+.info-graph {
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  margin-left: 20px;
+  border: 1px dashed #ccc;
+}

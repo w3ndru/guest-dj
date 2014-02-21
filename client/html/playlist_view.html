@@ -1,5 +1,17 @@
 <template name="playlist">
   <div class="playlist">
-    <h3>Playlist for ...</h3>
+    <h3>Playlist for {{playlistName}}</h3>
+    <ul>
+      {{#each tracks}}
+        <li>
+          {{artist}} - {{title}}
+          {{#if currentUser}}
+            <button data-artist="{{artist}}" data-title="{{title}}">
+              I want this!
+            </button>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
   </div>
 </template>

@@ -10,7 +10,7 @@
   <nav class="dj-nav">
     <a id="dj-nav-home" data-section="home" class="tab">Home</a>
     <a id="dj-nav-events" data-section="events" class="tab">Events</a>
-    <a id="dj-nav-playlists" data-section="playlists" class="tab">Playlists</a>
+    <a id="dj-nav-requests" data-section="requests" class="tab">Requests</a>
     <a id="dj-nav-settings" data-section="settings" class="tab">Settings</a>
   </nav>
 </template>
@@ -26,8 +26,8 @@
       <ul class="playlist"></ul>
       {{> playlist_info}}
     {{/if}}
-    {{#if currentSectionIs "playlists"}}
-      <h4>Playlists</h4>
+    {{#if currentSectionIs "requests"}}
+      <h4>Requests</h4>
     {{/if}}
     {{#if currentSectionIs "settings"}}
       <h4>Settings</h4>
@@ -78,11 +78,13 @@
 </template>
 
 <template name="playlist_info">
-  <div class='info-graph'>
-    <div>
-      {{GD.currentPlaylistUrl}}
+  {{#if showInfo}}
+    <div class='info-graph'>
+      <div>
+        {{GD.currentPlaylistUrl}}
+      </div>
+      <img src="{{GD.currentPlaylistQRUrl}}"/>
     </div>
-    <img src="{{GD.currentPlaylistQRUrl}}"/>
-  </div>
+  {{/if}}
 </template>
 

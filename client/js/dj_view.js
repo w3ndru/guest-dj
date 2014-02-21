@@ -49,10 +49,11 @@ if(Meteor.isClient) {
     'click .dj-nav a': function(e) {
       if($(e.target).hasClass('active')) { return; }
 
+      var section = $(e.target).data('section');
       $('.dj-nav a').removeClass('active');
       $(e.target).addClass('active');
 
-      Session.set('currentSection', $(e.target).data('section'));
+      Meteor.Router.to('/' + section);
     }
 
   });

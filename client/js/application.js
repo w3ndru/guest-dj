@@ -28,6 +28,7 @@ if(Meteor.isClient) {
 
   Meteor.startup(function() {
     Session.set('currentEvent', null);
+    Session.set('currentPlaylist', null);
   });
 
   Template.application.isDJ = function() {
@@ -44,6 +45,16 @@ Meteor.Router.add({
 
   '/events': function() {
     Session.set('currentSection', 'events');
+    return 'application';
+  },
+
+  '/requests': function() {
+    Session.set('currentSection', 'requests');
+    return 'application';
+  },
+
+  '/settings': function() {
+    Session.set('currentSection', 'settings');
     return 'application';
   },
 

@@ -66,4 +66,8 @@ if(Meteor.isClient) {
       GD.playlists.insert({userId: userId, 'event': eventName, tracks: playlist});
     }
   });
+
+  Template.playlist_info.showInfo = function() {
+    return !!Session.get('currentPlaylist');
+  };
 }

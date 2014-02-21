@@ -1,0 +1,20 @@
+.playlist {
+  padding: 30px 45px;
+}
+
+.playlist ul li:hover {
+  background-color: rgba(199, 199, 199, 0.5);
+  color: #999;
+}
+
+.playlist ul li button {
+  border-radius: 7px;
+  border: none;
+  padding: 1px 10px;
+  margin-left: 10px;
+}
+
+.playlist ul li button:hover {
+  color: red;
+  background-color: whitesmoke;
+}
