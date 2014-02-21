@@ -15,7 +15,7 @@ if(Meteor.isClient) {
     currentPlaylistQRUrl: function() {
       var playlist = Session.get('currentPlaylist');
       if(!playlist) { return ''; }
-      return "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" +
+      return "https://chart.googleapis.com/chart?chs=120x120&cht=qr&chl=" +
               window.location.origin +
               '/playlist/' +
               playlist._id;

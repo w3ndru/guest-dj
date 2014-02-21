@@ -15,7 +15,7 @@ if(Meteor.isClient) {
       e.preventDefault();
 
       if (!window.File || !window.FileReader || !window.FileList || !window.Blob) { return; }
-      
+
       var f = e.dataTransfer.files[0];
       var reader = new FileReader();
       reader.readAsText(f);
@@ -26,7 +26,7 @@ if(Meteor.isClient) {
         var data = [];
 
         if(text[1].indexOf('EXTM3U') < 0) { return; }
-        
+
         for(var i = 1; i < text.length - 1; i++) {
           var info = text[i].trim();
 
@@ -34,7 +34,7 @@ if(Meteor.isClient) {
             var details = /^EXTINF:\d+,(.+)/.exec(info)[1];
             var artist =  details.split(' - ')[1];
             var title = details.split(' - ')[0];
-            
+
             data.push({artist: artist, title: title});
             html += '<li>' + artist + ' - ' + title + '</li>';
           }
@@ -56,5 +56,11 @@ if(Meteor.isClient) {
     }
 
   });
+
+  Template.dj_nav.rendered = function() {
+    var section = Session.get('currentSection');
+    $('nav .tab').removeClass('active');
+    $('nav .tab#dj-nav-' + section).addClass('active');
+  };
 
 }
