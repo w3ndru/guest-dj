@@ -3,8 +3,14 @@
 }
 
 .playlist ul li:hover {
-  background-color: rgba(199, 199, 199, 0.5);
-  color: #999;
+  background-color: rgba(199, 199, 199, 0.3);
+  color: #ccc;
+
+  transition: background-color 0.25s ease 0s;
+  -o-transition: background-color 0.25s ease 0s;
+  -ms-transition: background-color 0.25s ease 0s;
+  -moz-transition: background-color 0.25s ease 0s;
+  -webkit-transition: background-color 0.25s ease 0s;
 }
 
 .playlist ul li button {
