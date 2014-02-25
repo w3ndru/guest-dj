@@ -1,0 +1,57 @@
+.marketing-view {
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  height: 100vh;
+  width: 80vw;
+  min-width: 475px;
+  margin: auto;
+
+  h2 {
+    height: 60px;
+    background-image: url('/img/wave_879900.png');
+    background-repeat: no-repeat;
+    background-position: 52% 0px;
+  }
+
+  p {
+    margin: 20px auto;
+    width: 400px;
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 140%;
+  }
+
+  .role {
+    display: inline-block;
+    width: 245px;
+    height: 160px;
+    vertical-align: top;
+    border: 1px solid #586e75;
+    padding: 5px 15px 25px;
+    border-radius: 3px;
+    margin: 10px 5px;
+
+    transition: all 0.125s ease 0s;
+
+    &:hover {
+      background-color: #586e75;
+      color: #dedede;
+    }
+
+    h4 {
+      color: #879900;
+    }
+
+    p {
+      font-weight: 300;
+    }
+  }
+}
+
+.logo-text {
+  font-family: 'Audiowide', cursive;
+  font-size: 35px;
+  letter-spacing: 5px;
+  color: #879900;
+}

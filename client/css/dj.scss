@@ -5,43 +5,43 @@ label {
 
 .dj-view {
   padding: 0px 0px 50px 0px;
-}
 
-.dj-view .logo-text {
-  font-size: 20px;
-  letter-spacing: 2px;
-  line-height: 20px;
-  padding: 0px 2vw;
+  .logo-text {
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-height: 20px;
+    padding: 0px 2vw;
+  }
 }
 
 .dj-nav {
   width: 13vw;
   margin-left: 2vw;
   margin-top: 30px;
-}
 
-.dj-nav a {
-  display: block;
-  color: #eee8d5;
-  background-color: #586e75;
-  margin-bottom: 1px;
-  border-radius: 2px 0px 0px 2px;
-  line-height: 30px;
-  padding-left: 40%;
-  letter-spacing: 2px;
+  a {
+    display: block;
+    color: #eee8d5;
+    background-color: #586e75;
+    margin-bottom: 1px;
+    border-radius: 2px 0px 0px 2px;
+    line-height: 30px;
+    padding-left: 40%;
+    letter-spacing: 2px;
 
-  transition: all 0.125s ease 0s;
-  -o-transition: all 0.125s ease 0s;
-  -ms-transition: all 0.125s ease 0s;
-  -moz-transition: all 0.125s ease 0s;
-  -webkit-transition: all 0.125s ease 0s;
-}
+    transition: all 0.125s ease 0s;
+    -o-transition: all 0.125s ease 0s;
+    -ms-transition: all 0.125s ease 0s;
+    -moz-transition: all 0.125s ease 0s;
+    -webkit-transition: all 0.125s ease 0s;
 
-.dj-nav a:hover, .dj-nav a.active {
-  background-color: #93a1a1;
-  text-decoration: none;
-  cursor: pointer;
-  color: whitesmoke;
+    &:hover, &.active {
+      background-color: #93a1a1;
+      text-decoration: none;
+      cursor: pointer;
+      color: whitesmoke;
+    }
+  }
 }
 
 .dj-content {
@@ -56,21 +56,21 @@ label {
   padding: 15px 35px;
   color: whitesmoke;
   overflow: auto;
-}
 
-.dj-content h4 {
-  display: inline-block;
+  h4 {
+    display: inline-block;
+  }
 }
 
 .event-list {
   display: inline-block;
   float: right;
   margin-top: 10px;
-}
 
-.event-list select {
-  margin-right: 10px;
-  width: 208px;
+  select {
+    margin-right: 10px;
+    width: 208px;
+  }
 }
 
 .upload {
@@ -99,19 +99,19 @@ label {
   -ms-transition: background-color 0.25s ease 0s;
   -moz-transition: background-color 0.25s ease 0s;
   -webkit-transition: background-color 0.25s ease 0s;
-}
 
-.inner-drop-zone:hover {
-  background-color: whitesmoke;
-  color: #999;
+  &:hover {
+    background-color: whitesmoke;
+    color: #999;
+  }
 }
 
 ul.playlist {
   margin: 10px 0px;
-}
 
-ul.playlist li:nth-child(even) {
-  background-color: #586e75;
+  li:nth-child(even) {
+    background-color: #586e75;
+  }
 }
 
 .info-graph {

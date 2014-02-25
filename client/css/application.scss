@@ -1,0 +1,85 @@
+@import "dj";
+
+html {
+  font: 0.9em 'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+  background-color: #163543;
+}
+
+body {
+  background-color: inherit;
+  padding: 0px;
+  margin: 0px;
+  color: #95a1a1;
+  font-weight: 300;
+}
+
+span, div, li {
+  cursor: default;
+  background-color: inherit;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+ul {
+  list-style: none;
+  display: inline-block;
+
+  li {
+    padding: 5px 20px;
+  }
+}
+
+#login-buttons {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+
+  .login-close-text {
+    float: right;
+  }
+
+  #login-sign-in-link {
+    color: #cb4b16;
+  }
+
+  #login-dropdown-list {
+    left: auto;
+    right: 0px;
+    top: 5px;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 20px;
+
+    #login-dropdown-list .login-button {
+      background: #6c71c4;
+      box-shadow: none;
+      border: none;
+      text-shadow: none;
+      margin-bottom: 10px;
+
+      transition: background 0.125s ease 0s;
+      -o-transition: background 0.125s ease 0s;
+      -ms-transition: background 0.125s ease 0s;
+      -moz-transition: background 0.125s ease 0s;
+      -webkit-transition: background 0.125s ease 0s;
+
+      &:hover {
+        background: #7d82d5;
+      }
+    }
+  }
+}
+
+.login-text-and-button, .or {
+  display: none;
+}
+
+.btn {
+  vertical-align: top;
+}

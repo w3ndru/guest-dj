@@ -13,10 +13,10 @@ if(Meteor.isClient) {
   };
 
   Template.playlist.events({
-    'click ul li button': function(event) {
+    'click ul li button': function(e) {
       var list = Session.get('currentPlaylist');
-      var artist = $(event.target).data('artist');
-      var title = $(event.target).data('title');
+      var artist = $(e.target).data('artist');
+      var title = $(e.target).data('title');
       var userId = list.userId;
       var eventName = list.event;
       debugger
