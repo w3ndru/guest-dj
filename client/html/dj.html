@@ -1,0 +1,33 @@
+<template name="dj_view">
+  <div class="dj-view">
+    <h2 class="logo-text">Guest DJ</h2>
+    {{> dj_nav}}
+    {{> dj_content}}
+  </div>
+</template>
+
+<template name="dj_nav">
+  <nav class="dj-nav">
+    <a id="dj-nav-home" data-section="home" class="tab">Home</a>
+    <a id="dj-nav-events" data-section="events" class="tab">Events</a>
+    <a id="dj-nav-requests" data-section="requests" class="tab">Requests</a>
+    <a id="dj-nav-settings" data-section="settings" class="tab">Settings</a>
+  </nav>
+</template>
+
+<template name="dj_content">
+  <div class="dj-content">
+    {{#if currentSectionIs "home"}}
+      <h4>DJ Home</h4>
+    {{/if}}
+    {{#if currentSectionIs "events"}}
+      {{> events}}
+    {{/if}}
+    {{#if currentSectionIs "requests"}}
+      {{> requests}}
+    {{/if}}
+    {{#if currentSectionIs "settings"}}
+      <h4>Settings</h4>
+    {{/if}}
+  </div>
+</template>

@@ -19,7 +19,16 @@ if(Meteor.isClient) {
       var title = $(e.target).data('title');
       var userId = list.userId;
       var eventName = list.event;
-      debugger
+
+      var result = GD.requests.find({title: title, artist: artist, played: false}).fetch();
+
+      if(!!result.length) {
+        GD.requests.update(result[0]._id, {$inc: {count: 1}});
+      } else {
+        GD.requests.insert({userId: userId, title: title, artist: artist, requestTime: new Date(), count: 1, played: false});
+      }
+
+      $(e.target).hide();
     }
   });
 }

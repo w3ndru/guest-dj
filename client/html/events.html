@@ -1,51 +1,21 @@
-<template name="dj_view">
-  <div class="dj-view">
-    <h2 class="logo-text">Guest DJ</h2>
-    {{> dj_nav}}
-    {{> dj_content}}
-  </div>
-</template>
-
-<template name="dj_nav">
-  <nav class="dj-nav">
-    <a id="dj-nav-home" data-section="home" class="tab">Home</a>
-    <a id="dj-nav-events" data-section="events" class="tab">Events</a>
-    <a id="dj-nav-requests" data-section="requests" class="tab">Requests</a>
-    <a id="dj-nav-settings" data-section="settings" class="tab">Settings</a>
-  </nav>
-</template>
-
-<template name="dj_content">
-  <div class="dj-content">
-    {{#if currentSectionIs "home"}}
-      <h4>DJ Home</h4>
-    {{/if}}
-    {{#if currentSectionIs "events"}}
-      {{> dj_events}}
-      {{> dj_playlist}}
-      <ul class="playlist"></ul>
-      {{> playlist_info}}
-    {{/if}}
-    {{#if currentSectionIs "requests"}}
-      <h4>Requests</h4>
-    {{/if}}
-    {{#if currentSectionIs "settings"}}
-      <h4>Settings</h4>
-    {{/if}}
-  </div>
+<template name="events">
+  {{> dj_events}}
+  {{> dj_playlist}}
+  {{> playlist_details}}
+  {{> publish_info}}
 </template>
 
 <template name="dj_events">
   <div class="dj-events clearfix">
     <h4>{{titleText}}</h4>
+
     <div class="event-list">
-    	<select>
+      <select>
         <option value="--">--</option>
         {{#each eventList}}
           <option value="{{name}}">{{name}}</option>
         {{/each}}
       </select>
-      <br />
 
       <div class="input-append">
         <input class="span2" id="new-even-name" type="text" placeholder="Event name">
@@ -68,6 +38,14 @@
   </div>
 </template>
 
+<template name="playlist_details">
+  <ul class="playlist">
+    {{#each tracks}}
+      <li>{{artist}} - {{title}}</li>
+    {{/each}}
+  </ul>
+</template>
+
 <template name="dj_upload_playlist">
   <div class="drop-zone">
     <div class="inner-drop-zone">
@@ -77,7 +55,7 @@
   <button class="btn btn-inverse save hide">Save Playlist</button>
 </template>
 
-<template name="playlist_info">
+<template name="publish_info">
   {{#if showInfo}}
     <div class='info-graph'>
       <div>
@@ -87,4 +65,3 @@
     </div>
   {{/if}}
 </template>
-

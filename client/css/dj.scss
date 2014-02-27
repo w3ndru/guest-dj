@@ -60,64 +60,70 @@ label {
   h4 {
     display: inline-block;
   }
-}
 
-.event-list {
-  display: inline-block;
-  float: right;
-  margin-top: 10px;
+  .event-list {
+    select {
+      margin-right: 10px;
+      width: 208px;
+    }
 
-  select {
-    margin-right: 10px;
-    width: 208px;
+    .input-append {
+      float: right;
+    }
+  }
+
+  .upload {
+    background-color: #fafafa;
+    padding: 20px 40px;
+  }
+
+  .drop-zone {
+    text-align: center;
+    font-weight: 100;
+    cursor: default;
+    display: inline-block;
+    width: 40vw;
+  }
+
+  .inner-drop-zone {
+    padding: 4px;
+    border: 1px dashed #ddd;
+    border-radius: 5px;
+    letter-spacing: 0.1em;
+    color: whitesmoke;
+    font-size: 15px;
+
+    transition: background-color 0.25s ease 0s;
+    -o-transition: background-color 0.25s ease 0s;
+    -ms-transition: background-color 0.25s ease 0s;
+    -moz-transition: background-color 0.25s ease 0s;
+    -webkit-transition: background-color 0.25s ease 0s;
+
+    &:hover {
+      background-color: whitesmoke;
+      color: #999;
+    }
+  }
+
+  ul.playlist {
+    margin: 10px 0px;
+
+    li:nth-child(even) {
+      background-color: #586e75;
+    }
+  }
+
+  .info-graph {
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px;
+    margin-left: 20px;
+    border: 1px dashed #ccc;
   }
 }
 
-.upload {
-  background-color: #fafafa;
-  padding: 20px 40px;
-}
-
-.drop-zone {
-  text-align: center;
-  font-weight: 100;
-  cursor: default;
-  display: inline-block;
-  width: 40vw;
-}
-
-.inner-drop-zone {
-  padding: 4px;
-  border: 1px dashed #ddd;
-  border-radius: 5px;
-  letter-spacing: 0.1em;
-  color: whitesmoke;
-  font-size: 15px;
-
-  transition: background-color 0.25s ease 0s;
-  -o-transition: background-color 0.25s ease 0s;
-  -ms-transition: background-color 0.25s ease 0s;
-  -moz-transition: background-color 0.25s ease 0s;
-  -webkit-transition: background-color 0.25s ease 0s;
-
-  &:hover {
-    background-color: whitesmoke;
-    color: #999;
+.requests {
+  .dj-events h4 {
+    display: none;
   }
-}
-
-ul.playlist {
-  margin: 10px 0px;
-
-  li:nth-child(even) {
-    background-color: #586e75;
-  }
-}
-
-.info-graph {
-  display: inline-block;
-  vertical-align: top;
-  padding: 20px;
-  margin-left: 20px;
-  border: 1px dashed #ccc;
 }

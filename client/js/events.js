@@ -1,4 +1,14 @@
 if(Meteor.isClient) {
+  Template.dj_events.rendered = function() {
+    var eventName = Session.get('currentEvent');
+
+    if(eventName) {
+      $('.event-list select option').filter(function() {
+        return $(this).text() == "December";
+      }).prop('selected', true);
+    }
+  };
+
   Template.dj_events.titleText = function() {
     return Session.get('currentEvent') || 'Select or create new event';
   };
@@ -26,6 +36,7 @@ if(Meteor.isClient) {
       if(eventName == '--') {
         Session.set('currentEvent', null);
         Session.set('currentPlaylist', null);
+        $('ul.playlist').html('')
       } else {
         Session.set('currentEvent', eventName);
         var list = GD.playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
@@ -58,6 +69,48 @@ if(Meteor.isClient) {
   };
 
   Template.dj_upload_playlist.events({
+    'dragover .drop-zone' : function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'copy';
+    },
+
+    'drop .drop-zone' : function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      if (!window.File || !window.FileReader || !window.FileList || !window.Blob) { return; }
+
+      var f = e.dataTransfer.files[0];
+      var reader = new FileReader();
+      reader.readAsText(f);
+
+      reader.onload = function() {
+        var text = this.result.split('#');
+        // var html = '';
+        var data = [];
+
+        if(text[1].indexOf('EXTM3U') < 0) { return; }
+
+        for(var i = 1; i < text.length - 1; i++) {
+          var info = text[i].trim();
+
+          if(info.indexOf('EXTINF') === 0) {
+            var details = /^EXTINF:\d+,(.+)/.exec(info)[1];
+            var artist =  details.split(' - ')[1];
+            var title = details.split(' - ')[0];
+
+            data.push({artist: artist, title: title});
+            // html += '<li>' + artist + ' - ' + title + '</li>';
+          }
+        }
+
+        // $('ul.playlist').html(html);
+        Template.dj_view.playListFile = data;
+        $('button.save').removeClass('hide');
+      };
+    },
+
     'click button.btn-inverse.save': function(e) {
       var eventName = Session.get('currentEvent');
       var userId = Meteor.userId();
@@ -67,7 +120,11 @@ if(Meteor.isClient) {
     }
   });
 
-  Template.playlist_info.showInfo = function() {
+  Template.playlist_details.tracks = function() {
+    return Session.get('currentPlaylist') && Session.get('currentPlaylist').tracks;
+  };
+
+  Template.publish_info.showInfo = function() {
     return !!Session.get('currentPlaylist');
   };
 }
