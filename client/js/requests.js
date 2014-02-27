@@ -11,4 +11,13 @@ if(Meteor.isClient) {
 
     }
   });
+
+  Template.requests_details.requests = function() {
+    var eventName = Session.get('currentEvent'),
+        userId    = Meteor.userId();
+
+    if(!eventName) { return; }
+
+    return GD.requests.find({userId: userId, event: eventName}).fetch();
+  };
 }

@@ -2,5 +2,23 @@
   <div class="requests">
     <h4>Requests</h4>
     {{> dj_events}}
+    {{> requests_details}}
+  </div>
+</template>
+
+<template name="requests_details">
+  <div class="requests-details">
+    <ul class="request-list playlist">
+      {{#each requests}}
+        <li>
+          <span class="artist truncate">{{artist}}</span>
+          <span class="title truncate">{{title}}</span>
+          <span class="count">{{count}} hit(s)</span>
+          <span class="remove">
+            <button class="btn btn-inverse btn-small">Dismiss</button>
+          </span>
+        </li>
+      {{/each}}
+    </ul>
   </div>
 </template>

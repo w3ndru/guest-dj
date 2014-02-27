@@ -87,7 +87,6 @@ if(Meteor.isClient) {
 
       reader.onload = function() {
         var text = this.result.split('#');
-        // var html = '';
         var data = [];
 
         if(text[1].indexOf('EXTM3U') < 0) { return; }
@@ -101,11 +100,9 @@ if(Meteor.isClient) {
             var title = details.split(' - ')[0];
 
             data.push({artist: artist, title: title});
-            // html += '<li>' + artist + ' - ' + title + '</li>';
           }
         }
 
-        // $('ul.playlist').html(html);
         Template.dj_view.playListFile = data;
         $('button.save').removeClass('hide');
       };

@@ -14,18 +14,31 @@ if(Meteor.isClient) {
 
   Template.playlist.events({
     'click ul li button': function(e) {
-      var list = Session.get('currentPlaylist');
-      var artist = $(e.target).data('artist');
-      var title = $(e.target).data('title');
-      var userId = list.userId;
-      var eventName = list.event;
+      var list      = Session.get('currentPlaylist'),
+          artist    = $(e.target).data('artist'),
+          title     = $(e.target).data('title'),
+          userId    = list.userId,
+          eventName = list.event;
 
-      var result = GD.requests.find({title: title, artist: artist, played: false}).fetch();
+      var result = GD.requests.find({title: title,
+                                      artist: artist,
+                                      event: eventName,
+                                      played: false
+                                    }).fetch();
 
       if(!!result.length) {
-        GD.requests.update(result[0]._id, {$inc: {count: 1}});
+        GD.requests.update(result[0]._id,
+                            {$inc: {count: 1}}
+                          );
       } else {
-        GD.requests.insert({userId: userId, title: title, artist: artist, requestTime: new Date(), count: 1, played: false});
+        GD.requests.insert({userId: userId,
+                            title: title,
+                            artist: artist,
+                            event: eventName,
+                            requestTime: new Date(),
+                            count: 1,
+                            played: false
+                          });
       }
 
       $(e.target).hide();

@@ -7,7 +7,7 @@ if(Meteor.isServer) {
     // {_id, userId, even, tracks}, track: [{artist, title}]
     Playlists = new Meteor.Collection('playlists');
     Profiles = new Meteor.Collection('profiles');
-    // {_id, userId, title, artist, requestTime, count, played}
+    // {_id, userId, title, artist, event, requestTime, count, played}
     Requests = new Meteor.Collection('requests');
 
     Meteor.publish('djs', function() { return DJs.find(); });
