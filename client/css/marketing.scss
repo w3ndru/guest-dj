@@ -1,3 +1,5 @@
+@import "global";
+
 .marketing-view {
   text-align: center;
   padding-top: 100px;
@@ -53,5 +55,5 @@
   font-family: 'Audiowide', cursive;
   font-size: 35px;
   letter-spacing: 5px;
-  color: #879900;
+  color: $accent-green;
 }

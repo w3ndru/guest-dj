@@ -1,3 +1,5 @@
+@import "global";
+
 label {
   margin: 20px 20px 0px 20px;
   display: inline;
@@ -10,7 +12,9 @@ label {
     font-size: 20px;
     letter-spacing: 2px;
     line-height: 20px;
-    padding: 0px 2vw;
+    padding: 10px 2vw;
+    margin-top: 0px;
+    color: $accent-yellow;
   }
 }
 
@@ -20,32 +24,46 @@ label {
   margin-top: 30px;
 
   a {
+    position: relative;
     display: block;
-    color: #eee8d5;
-    background-color: #586e75;
+    color: $content1;
+    background-color: $background-darker;
     margin-bottom: 1px;
     border-radius: 2px 0px 0px 2px;
-    line-height: 30px;
+    line-height: 31px;
     padding-left: 40%;
     letter-spacing: 2px;
-
-    transition: all 0.125s ease 0s;
-    -o-transition: all 0.125s ease 0s;
-    -ms-transition: all 0.125s ease 0s;
-    -moz-transition: all 0.125s ease 0s;
-    -webkit-transition: all 0.125s ease 0s;
+    border: 1px solid transparent;
 
     &:hover, &.active {
-      background-color: #93a1a1;
+      background-color: $content1;
       text-decoration: none;
       cursor: pointer;
       color: whitesmoke;
+      border-top: 1px solid $accent-yellow;
+      border-bottom: 1px solid $accent-yellow;
+
+      .diamond {
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        right: -12px;
+        top: 4px;
+        z-index: 1;
+        transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        /*border-top: 1px solid $accent-yellow;*/
+        /*border-right: 1px solid $accent-yellow;*/
+      }
     }
   }
 }
 
 .dj-content {
-  background-color: #93a1a1;
+  background-color: $content1;
   position: absolute;
   right: 0px;
   top: 40px;
@@ -56,6 +74,9 @@ label {
   padding: 15px 35px;
   color: whitesmoke;
   overflow: auto;
+  border: 1px solid $accent-yellow;
+  border-right: 0;
+
 
   h4 {
     display: inline-block;
