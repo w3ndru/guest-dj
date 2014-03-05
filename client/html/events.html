@@ -41,11 +41,11 @@
 <template name="playlist_details">
   <ul class="playlist">
     {{#each tracks}}
-      <li>
+      <li class="transition-all">
         <span class="artist truncate">{{artist}}</span>
         <span class="title truncate">{{title}}</span>
         <span class="remove">
-          <button class="btn btn-inverse btn-small">-</button>
+          <button class="btn btn-small btn-inverse">Remove track</button>
         </span>
       </li>
     {{/each}}

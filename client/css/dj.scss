@@ -12,69 +12,52 @@ label {
     font-size: 20px;
     letter-spacing: 2px;
     line-height: 20px;
-    padding: 10px 2vw;
-    margin-top: 0px;
+    padding: 10px 1.5vw;
+    margin-top: 5px;
     color: $accent-yellow;
   }
 }
 
 .dj-nav {
-  width: 13vw;
-  margin-left: 2vw;
+  width: 13.3vw;
   margin-top: 30px;
 
   a {
     position: relative;
     display: block;
     color: $content1;
-    background-color: $background-darker;
     margin-bottom: 1px;
     border-radius: 2px 0px 0px 2px;
     line-height: 31px;
-    padding-left: 40%;
+    padding-left: 30%;
     letter-spacing: 2px;
     border: 1px solid transparent;
 
     &:hover, &.active {
-      background-color: $content1;
+      background-color: $background-darker;
       text-decoration: none;
       cursor: pointer;
       color: whitesmoke;
       border-top: 1px solid $accent-yellow;
       border-bottom: 1px solid $accent-yellow;
-
-      .diamond {
-        width: 22px;
-        height: 22px;
-        position: absolute;
-        right: -12px;
-        top: 4px;
-        z-index: 1;
-        transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        /*border-top: 1px solid $accent-yellow;*/
-        /*border-right: 1px solid $accent-yellow;*/
-      }
+      border-left: 3px solid #b58900;
     }
   }
 }
 
 .dj-content {
-  background-color: $content1;
   position: absolute;
   right: 0px;
   top: 40px;
   height: 90vh;
-  width: 85vw;
+  width: 87vw;
   border-radius: 2px 0px 0px 2px;
   box-sizing: border-box;
   padding: 15px 35px;
   color: whitesmoke;
   overflow: auto;
   border: 1px solid $accent-yellow;
+  border-left: 3px solid $accent-yellow;
   border-right: 0;
 
 
@@ -130,7 +113,15 @@ label {
     display: inline-block;
     vertical-align: top;
     padding: 20px;
-    border: 1px dashed #ccc;
+    border: 1px dotted $accent-yellow;
+
+    &:hover {
+      background-color: $content1;
+    }
+
+    img {
+      margin-top: 10px;
+    }
   }
 }
 
@@ -143,15 +134,28 @@ label {
 }
 
 .playlist {
-  border: 1px solid #ccc;
   padding: 0;
   margin-right: 20px;
+  margin-bottom: 20px;
 
   li {
     padding: 0;
+    border-bottom: 1px dotted $accent-green;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
 
     &:hover {
-      background-color: rgba(200, 200, 200, 0.4);
+      border-left: 3px solid $accent-green;
+      border-right: 3px solid $accent-green;
+      border-bottom: 1px solid $accent-green;
+
+      .artist, .title {
+        color: $accent-green;
+      }
+
+      .remove button {
+
+      }
     }
 
     span {
@@ -163,21 +167,17 @@ label {
     }
 
     .artist {
-      color: #eaeaea;
+      color: $accent-cyan;
       width: 150px;
     }
 
     .title {
-      color: #6c71c4;
+      color: $accent-violet;
       width: 300px;
     }
 
     .count {
       width: 70px;
-    }
-
-    .remove {
-      /*float: right;*/
     }
   }
 }

@@ -42,6 +42,14 @@ ul {
   right: 20px;
   top: 10px;
 
+  a:hover {
+    color: $accent-green;
+  }
+
+  .login-link-text {
+    color: $accent-orange;
+  }
+
   .login-close-text {
     float: right;
   }
@@ -55,8 +63,11 @@ ul {
     right: 0px;
     top: 5px;
     border: none;
-    border-radius: 3px;
+    border-radius: 2px;
     padding: 15px 20px;
+    background-color: $background-darker;
+    color: $accent-orange;
+    border: 1px solid $accent-orange;
 
     #login-dropdown-list .login-button {
       background: #6c71c4;
@@ -90,4 +101,12 @@ ul {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.transition-all {
+  transition: all 0.25s ease 0s;
+  -o-transition: all 0.25s ease 0s;
+  -ms-transition: all 0.25s ease 0s;
+  -moz-transition: all 0.25s ease 0s;
+  -webkit-transition: all 0.25s ease 0s;
 }
