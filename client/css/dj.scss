@@ -149,8 +149,8 @@ label {
       border-right: 3px solid $accent-green;
       border-bottom: 1px solid $accent-green;
 
-      .artist, .title {
-        color: $accent-green;
+      .artist, .title, .age, .count {
+        color: $accent-magenta;
       }
 
       .remove button {
@@ -176,8 +176,14 @@ label {
       width: 300px;
     }
 
+    .age {
+      color: $accent-red;
+      width: 100px;
+    }
+
     .count {
       width: 70px;
+      color: $accent-blue;
     }
   }
 }

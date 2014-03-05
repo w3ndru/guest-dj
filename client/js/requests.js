@@ -8,7 +8,7 @@ if(Meteor.isClient) {
 
   Template.requests.events({
     'click ul li button': function(e) {
-
+      debugger
     }
   });
 
@@ -18,6 +18,12 @@ if(Meteor.isClient) {
 
     if(!eventName) { return; }
 
-    return GD.requests.find({userId: userId, event: eventName}).fetch();
+    var requests = GD.requests.find({userId: userId, event: eventName}).fetch();
+
+    requests.forEach(function(item, index) {
+      item.age = ((new Date() - item.requestTime) / 3600000).toFixed(1);
+    });
+
+    return requests;
   };
 }

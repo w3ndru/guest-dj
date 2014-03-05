@@ -121,6 +121,12 @@ if(Meteor.isClient) {
     return Session.get('currentPlaylist') && Session.get('currentPlaylist').tracks;
   };
 
+  Template.playlist_details.events({
+    'click .playlist .remove button': function(e) {
+      debugger
+    }
+  });
+
   Template.publish_info.showInfo = function() {
     return !!Session.get('currentPlaylist');
   };
