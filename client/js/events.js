@@ -4,7 +4,7 @@ if(Meteor.isClient) {
 
     if(eventName) {
       $('.event-list select option').filter(function() {
-        return $(this).text() == "December";
+        return $(this).text() == eventName;
       }).prop('selected', true);
     }
   };
@@ -80,7 +80,6 @@ if(Meteor.isClient) {
       e.preventDefault();
 
       if (!window.File || !window.FileReader || !window.FileList || !window.Blob) { return; }
-
       var f = e.dataTransfer.files[0];
       var reader = new FileReader();
       reader.readAsText(f);
@@ -104,6 +103,7 @@ if(Meteor.isClient) {
         }
 
         Template.dj_view.playListFile = data;
+        Session.set('uploadTracks', data);
         $('button.save').removeClass('hide');
       };
     },
@@ -114,11 +114,15 @@ if(Meteor.isClient) {
       var playlist = Template.dj_view.playListFile;
 
       GD.playlists.insert({userId: userId, 'event': eventName, tracks: playlist});
+      Session.set('uploadTracks', null);
     }
   });
 
   Template.playlist_details.tracks = function() {
-    return Session.get('currentPlaylist') && Session.get('currentPlaylist').tracks;
+    var tracksToBeUploaded = Session.get('uploadTracks'),
+        playlistTracks     = Session.get('currentPlaylist') && Session.get('currentPlaylist').tracks;
+
+    return tracksToBeUploaded || playlistTracks;
   };
 
   Template.playlist_details.events({

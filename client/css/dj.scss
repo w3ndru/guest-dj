@@ -104,7 +104,7 @@ label {
     -webkit-transition: background-color 0.25s ease 0s;
 
     &:hover {
-      background-color: whitesmoke;
+      background-color: $accent-violet;
       color: #999;
     }
   }

@@ -29,6 +29,7 @@ if(Meteor.isClient) {
   Meteor.startup(function() {
     Session.set('currentEvent', null);
     Session.set('currentPlaylist', null);
+    Session.set('uploadTracks', null);
   });
 
   Template.application.isDJ = function() {
