@@ -131,6 +131,24 @@ label {
       display: none;
     }
   }
+
+  .request-sorting {
+    margin: 20px 0px;
+
+    a {
+      padding: 5px 15px;
+      color: $content1;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+
+      &:hover, &.active {
+        border-radius: 3px;
+        color: whitesmoke;
+        background-color: $accent-green;
+      }
+    }
+  }
 }
 
 .playlist {

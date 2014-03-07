@@ -2,7 +2,17 @@
   <div class="requests">
     <h4>Requests</h4>
     {{> dj_events}}
+    {{> request_sorting}}
     {{> requests_details}}
+  </div>
+</template>
+
+<template name="request_sorting">
+  <div class="request-sorting">
+    Sort requests by &nbsp;
+    <a class="sort-tab active" data-sort-method="time">Request Time</a>
+    <a class="sort-tab" data-sort-method="count">Request Count</a>
+    <a class="sort-tab" data-sort-method="combo">Priority (Time + Count)</a>
   </div>
 </template>
 
@@ -17,6 +27,7 @@
           <span class="count truncate">{{count}} hit(s)</span>
           <span class="remove">
             <button class="btn btn-inverse btn-small">Dismiss</button>
+            ({{priority}})
           </span>
         </li>
       {{/each}}
