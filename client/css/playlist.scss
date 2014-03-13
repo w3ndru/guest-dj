@@ -1,26 +1,24 @@
+@import "global";
+
 .playlist-view {
   padding: 30px 45px;
 
-  ul li:hover {
-    background-color: rgba(199, 199, 199, 0.3);
-    color: #ccc;
+  .playlist-sorting {
+    margin: 20px 0px;
 
-    transition: background-color 0.25s ease 0s;
-    -o-transition: background-color 0.25s ease 0s;
-    -ms-transition: background-color 0.25s ease 0s;
-    -moz-transition: background-color 0.25s ease 0s;
-    -webkit-transition: background-color 0.25s ease 0s;
-  }
+    a {
+      padding: 5px 15px;
+      color: $content1;
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      cursor: pointer;
 
-  ul li button {
-    border-radius: 7px;
-    border: none;
-    padding: 1px 10px;
-    margin-left: 10px;
-
-    &:hover {
-      color: red;
-      background-color: whitesmoke;
+      &:hover, &.active {
+        border-radius: 3px;
+        color: whitesmoke;
+        background-color: $accent-green;
+      }
     }
   }
 }

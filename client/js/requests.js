@@ -19,6 +19,7 @@ if(Meteor.isClient) {
       $element.addClass('active');
     },
 
+    // Clicking on dismiss button
     'click ul li button': function(e) {
       debugger
     }

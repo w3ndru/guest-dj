@@ -31,6 +31,7 @@ if(Meteor.isClient) {
     Session.set('currentPlaylist', null);
     Session.set('uploadTracks', null);
     Session.set('requestSortMethod', 'time'); // time, count, combo
+    Session.set('playlistSortMethod', null); // artist, title
   });
 
   Template.application.isDJ = function() {

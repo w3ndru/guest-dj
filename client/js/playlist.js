@@ -7,12 +7,23 @@ if(Meteor.isClient) {
     return list[0] && list[0].event;
   };
 
-  Template.playlist.tracks = function() {
-    var list = Session.get('currentPlaylist');
+  Template.user_playlist.tracks = function() {
+    var list       = Session.get('currentPlaylist'),
+        sortMethod = Session.get('playlistSortMethod');
+
+    if(sortMethod && list) {
+      if(sortMethod == 'artist') {
+        list.tracks.sort(function(a, b) { return a.artist > b.artist; });
+      } else if(sortMethod == 'title') {
+        list.tracks.sort(function(a, b) { return a.title > b.title; });
+      }
+    }
+
     return list && list.tracks;
   };
 
   Template.playlist.events({
+    // Clicking on request button
     'click ul li button': function(e) {
       var list      = Session.get('currentPlaylist'),
           artist    = $(e.target).data('artist'),
@@ -42,6 +53,21 @@ if(Meteor.isClient) {
       }
 
       $(e.target).hide();
+    },
+
+    // Clicking on sorting options
+    'click .playlist-sorting .sort-tab': function(e) {
+      var method        = $(e.target).data('sort-method'),
+          currentMethod = Session.get('playlistSortMethod');
+
+      $('.playlist-sorting .sort-tab').removeClass('active');
+
+      if(method == currentMethod) {
+        Session.set('playlistSortMethod', null);
+      } else {
+        Session.set('playlistSortMethod', method);
+        $(e.target).addClass('active');
+      }
     }
   });
 }

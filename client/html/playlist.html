@@ -1,18 +1,29 @@
 <template name="playlist">
   <div class="playlist-view">
-    <h3>Playlist for {{playlistName}}</h3>
-    <ul>
-      {{#each tracks}}
-        <li>
-          {{artist}} - {{title}}
-          {{#if currentUser}}
-            <button data-artist="{{artist}}"
-                    data-title="{{title}}">
-              Request this track
-            </button>
-          {{/if}}
-        </li>
-      {{/each}}
-    </ul>
+    <h4>Playlist for {{playlistName}}</h4>
+    {{> playlist_sorting}}
+    {{> user_playlist}}
   </div>
+</template>
+
+<template name="playlist_sorting">
+  <div class="playlist-sorting">
+    Sort playlist by &nbsp;
+    <a class="sort-tab" data-sort-method="artist">Artist</a>
+    <a class="sort-tab" data-sort-method="title">Title</a>
+  </div>
+</template>
+
+<template name="user_playlist">
+  <ul class="playlist">
+    {{#each tracks}}
+      <li>
+        <span class="artist truncate">{{artist}}</span>
+        <span class="title truncate">{{title}}</span>
+        <span class="request">
+          <button class="btn btn-small">Request</button>
+        </span>
+      </li>
+    {{/each}}
+  </ul>
 </template>
