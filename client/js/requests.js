@@ -20,8 +20,11 @@ if(Meteor.isClient) {
     },
 
     // Clicking on dismiss button
-    'click ul li button': function(e) {
-      debugger
+    'click .dismiss': function(e) {
+      var trackId = $(e.target).data('id');
+
+      // When dismissed, set count to -2, it takes 3 requests to reactivate this track
+      GD.requests.update(trackId, {$set: {count: -2}});
     }
   });
 
@@ -31,8 +34,7 @@ if(Meteor.isClient) {
 
     if(!eventName) { return; }
 
-    var requests = GD.requests.find({userId: userId, event: eventName}).fetch();
-
+    var requests = GD.requests.find({userId: userId, event: eventName, count: {$gt: 0}}).fetch();
     requests.forEach(function(item, index) {
       // Calculate age of request in hours
       item.age = ((new Date() - item.requestTime) / 3600000).toFixed(1);
@@ -51,5 +53,14 @@ if(Meteor.isClient) {
     }
 
     return requests;
+  };
+
+  Template.dismissed_tracks.dismissedTracks = function() {
+    var eventName = Session.get('currentEvent'),
+        userId    = Meteor.userId();
+
+    if(!eventName) { return; }
+
+    return GD.requests.find({userId: userId, event: eventName, count: {$lt: 1}}).fetch();
   };
 }

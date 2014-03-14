@@ -4,6 +4,7 @@
     {{> dj_events}}
     {{> request_sorting}}
     {{> requests_details}}
+    {{> dismissed_tracks}}
   </div>
 </template>
 
@@ -26,9 +27,23 @@
           <span class="age truncate">{{age}} hr(s) ago</span>
           <span class="count truncate">{{count}} hit(s)</span>
           <span class="remove">
-            <button class="btn btn-inverse btn-small">Dismiss</button>
+            <button class="btn btn-inverse btn-small dismiss" data-id="{{_id}}">Dismiss</button>
             ({{priority}})
           </span>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="dismissed_tracks">
+  <div class="dismissed-tracks">
+    <h4>Dismissed Tacks</h4>
+    <ul class="dismissed playlist">
+      {{#each dismissedTracks}}
+        <li>
+          <span class="artist truncate">{{artist}}</span>
+          <span class="title truncate">{{title}}</span>
         </li>
       {{/each}}
     </ul>

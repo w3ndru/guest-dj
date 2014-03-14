@@ -33,15 +33,16 @@ if(Meteor.isClient) {
 
       var result = GD.requests.find({title: title,
                                       artist: artist,
-                                      event: eventName,
-                                      played: false
+                                      event: eventName
                                     }).fetch();
 
       if(!!result.length) {
+        // Increment when record found
         GD.requests.update(result[0]._id,
                             {$inc: {count: 1}}
                           );
       } else {
+        // Insert request if no record for track
         GD.requests.insert({userId: userId,
                             title: title,
                             artist: artist,
