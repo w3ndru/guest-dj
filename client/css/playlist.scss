@@ -1,7 +1,7 @@
 @import "global";
 
 .playlist-view {
-  padding: 30px 45px;
+  padding: 10px 20px;
 
   .playlist-sorting {
     margin: 20px 0px;
@@ -19,6 +19,22 @@
         color: whitesmoke;
         background-color: $accent-green;
       }
+    }
+  }
+
+  .playlist {
+    margin-right: 0px;
+
+    span {
+      padding: 2px 0px;
+    }
+
+    .artist {
+      width: 130px;
+    }
+
+    .title {
+      width: 230px;
     }
   }
 }

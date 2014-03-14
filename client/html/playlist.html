@@ -21,7 +21,11 @@
         <span class="artist truncate">{{artist}}</span>
         <span class="title truncate">{{title}}</span>
         <span class="request">
-          <button class="btn btn-small">Request</button>
+          <button class="btn btn-small"
+                  data-artist="{{artist}}"
+                  data-title="{{title}}">
+            Request
+          </button>
         </span>
       </li>
     {{/each}}
