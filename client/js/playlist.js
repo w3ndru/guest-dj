@@ -13,9 +13,9 @@ if(Meteor.isClient) {
 
     if(sortMethod && list) {
       if(sortMethod == 'artist') {
-        list.tracks.sort(function(a, b) { return a.artist > b.artist; });
+        list.tracks.sort(function(a, b) { return a.artist.localeCompare(b.artist); });
       } else if(sortMethod == 'title') {
-        list.tracks.sort(function(a, b) { return a.title > b.title; });
+        list.tracks.sort(function(a, b) { return a.title.localeCompare(b.title); });
       }
     }
 
