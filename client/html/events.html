@@ -64,9 +64,7 @@
 <template name="publish_info">
   {{#if showInfo}}
     <div class='info-graph'>
-      <div>
-        {{GD.currentPlaylistUrl}}
-      </div>
+      <input type="textfield" value="{{GD.currentPlaylistUrl}}" />
       <img src="{{GD.currentPlaylistQRUrl}}"/>
     </div>
   {{/if}}

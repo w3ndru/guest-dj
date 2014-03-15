@@ -117,7 +117,13 @@ label {
     border: 1px dotted $accent-yellow;
 
     &:hover {
-      background-color: $content1;
+      border: 1px solid $accent-yellow;
+    }
+
+    input {
+      display: block;
+      color: gray;
+      font-weight: lighter;
     }
 
     img {
