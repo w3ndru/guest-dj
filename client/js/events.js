@@ -26,6 +26,7 @@ if(Meteor.isClient) {
 
       GD.events.insert({userId: Meteor.userId(), name: eventName, playListId: null});
       Session.set('currentEvent', eventName);
+      Session.set('currentPlaylist', null);
       input.val('');
     },
 
@@ -33,10 +34,12 @@ if(Meteor.isClient) {
       var option = $(e.target.selectedOptions);
       var eventName = option.val();
 
+      Session.set('uploadTracks', null);
+
       if(eventName == '--') {
         Session.set('currentEvent', null);
         Session.set('currentPlaylist', null);
-        $('ul.playlist').html('')
+        $('ul.playlist').html('');
       } else {
         Session.set('currentEvent', eventName);
         var list = GD.playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
@@ -53,7 +56,13 @@ if(Meteor.isClient) {
     var html = '';
 
     list.tracks.forEach(function(item) {
-      html += '<li>' + item.artist + ' - ' + item.title + '</li>';
+      html += '<li class="transition-all">' +
+                  '<span class="artist truncate">' + item.artist + '</span>' +
+                  '<span class="title truncate">' + item.title + '</span>' +
+                  '<span class="remove">' +
+                    '<button class="btn btn-small btn-inverse">Remove track</button>' +
+                  '</span>' +
+                '</li>';
     });
 
     $('ul.playlist').html(html);
