@@ -21,20 +21,65 @@
       }
     }
   }
+}
 
-  .playlist {
-    margin-right: 0px;
+@media (orientation:portrait) {
+  .playlist-view {
+    padding: 2vh 2vw;
 
-    span {
-      padding: 2px 0px;
+    h4 {
+      font-size: 6vw;
+      line-height: 100%;
     }
 
-    .artist {
-      width: 130px;
+    .playlist-sorting {
+      margin: 3vh 0px;
+      font-size: 4vw;
+      line-height: 100%;
+
+      a {
+        padding: 0.5vh 3vw;
+        color: #586e75;
+        text-decoration: none;
+        font-size: 4vw;
+        cursor: pointer;
+
+        &:hover, &.active {
+          border-radius: 2vw;
+          color: whitesmoke;
+          background-color: $accent-green;
+        }
+      }
     }
 
-    .title {
-      width: 230px;
+    .playlist {
+      font-size: 4vw;
+      width: 100%;
+      margin: 0;
+
+      li {
+      }
+
+      span {
+        padding: 1.5vh 0;
+      }
+
+      .artist {
+        width: 30vw;
+      }
+
+      .title {
+        width: 55vw;
+      }
+
+      .request {
+        button {
+          font-size: 4vw;
+          line-height: 100%;
+          padding: 1vw;
+          margin: 0;
+        }
+      }
     }
   }
 }
