@@ -136,7 +136,18 @@ if(Meteor.isClient) {
 
   Template.playlist_details.events({
     'click .playlist .remove button': function(e) {
-      debugger
+      var artist = $(e.target).parent().siblings('.artist').html();
+      var title = $(e.target).parent().siblings('.title').html();
+
+      if (window.confirm('Remove ' + title + '?')) {
+        var currentPlaylist = Session.get('currentPlaylist');
+        var removalIndex;
+
+        currentPlaylist.tracks.forEach(function(item, index) {
+          debugger
+
+        });
+      }
     }
   });
 
