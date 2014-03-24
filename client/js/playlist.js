@@ -41,6 +41,12 @@ if(Meteor.isClient) {
         GD.requests.update(result[0]._id,
                             {$inc: {count: 1}}
                           );
+
+        if(result[0].count == 0) {
+          GD.requests.update(result[0]._id,
+                            {$set: {requestTime: new Date()}}
+                          );
+        }
       } else {
         // Insert request if no record for track
         GD.requests.insert({userId: userId,

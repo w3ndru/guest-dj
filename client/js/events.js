@@ -136,17 +136,25 @@ if(Meteor.isClient) {
 
   Template.playlist_details.events({
     'click .playlist .remove button': function(e) {
-      var artist = $(e.target).parent().siblings('.artist').html();
-      var title = $(e.target).parent().siblings('.title').html();
+      var artist = $(e.target).parent().siblings('.artist').text();
+      var title = $(e.target).parent().siblings('.title').text();
 
       if (window.confirm('Remove ' + title + '?')) {
         var currentPlaylist = Session.get('currentPlaylist');
-        var removalIndex;
+        var tracks = currentPlaylist.tracks;
 
-        currentPlaylist.tracks.forEach(function(item, index) {
-          debugger
+        for(var i = 0; i < tracks.length; i++) {
+          if(tracks[i].artist == artist && tracks[i].title == title) {
+            tracks.splice(i, 1);
+            break;
+          }
+        }
 
-        });
+        currentPlaylist.tracks = tracks;
+        Session.set('currentPlaylist', currentPlaylist);
+        GD.playlists.update(currentPlaylist._id,
+                            {$set: {tracks: tracks}}
+                            );
       }
     }
   });

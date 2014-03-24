@@ -50,6 +50,8 @@ if(Meteor.isClient) {
       requests.sort(function(a, b) { return a.count < b.count; });
     } else if (sortMethod == 'combo') {
       requests.sort(function(a, b) { return a.priority < b.priority; });
+    } else {
+      requests.sort(function(a, b) { return a.requestTime > b.requestTime; });
     }
 
     return requests;

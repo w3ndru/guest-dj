@@ -28,7 +28,7 @@
           <span class="count truncate">{{count}} hit(s)</span>
           <span class="remove">
             <button class="btn btn-inverse btn-small dismiss" data-id="{{_id}}">Dismiss</button>
-            ({{priority}})
+            <!-- ({{priority}}) -->
           </span>
         </li>
       {{/each}}
@@ -44,6 +44,7 @@
         <li>
           <span class="artist truncate">{{artist}}</span>
           <span class="title truncate">{{title}}</span>
+          <span>{{count}}</span>
         </li>
       {{/each}}
     </ul>
