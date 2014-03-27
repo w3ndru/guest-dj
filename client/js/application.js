@@ -1,6 +1,5 @@
 if(Meteor.isClient) {
   GD = new Object({
-    djs: new Meteor.Collection('djs'),
     events: new Meteor.Collection('events'),
     playlists: new Meteor.Collection('playlists'),
     profiles: new Meteor.Collection('profiles'),
@@ -20,7 +19,6 @@ if(Meteor.isClient) {
     }
   });
 
-  Meteor.subscribe('djs');
   Meteor.subscribe('events');
   Meteor.subscribe('playlists');
   Meteor.subscribe('profiles');
@@ -33,9 +31,4 @@ if(Meteor.isClient) {
     Session.set('requestSortMethod', 'time'); // time, count, combo
     Session.set('playlistSortMethod', null); // artist, title
   });
-
-  Template.application.isDJ = function() {
-    var result = GD.djs.find({userID: Meteor.userId()}).fetch();
-    return !!result.length;
-  };
 }

@@ -10,11 +10,7 @@
 <template name="application">
 	{{loginButtons}}
 	{{#if currentUser}}
-		{{#if isDJ}}
-			{{> dj_view}}
-		{{else}}
-		  {{> guest_view}}
-		{{/if}}
+		{{> dj_view}}
 	{{else}}
 		{{> marketing_view}}
 	{{/if}}
