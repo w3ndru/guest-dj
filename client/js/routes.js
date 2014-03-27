@@ -1,9 +1,4 @@
 Meteor.Router.add({
-  '/home': function() {
-    Session.set('currentSection', 'home');
-    return 'application';
-  },
-
   '/events': function() {
     Session.set('currentSection', 'events');
     return 'application';
@@ -25,7 +20,7 @@ Meteor.Router.add({
   },
 
   '*': function() {
-    Session.set('currentSection', 'home');
+    Session.set('currentSection', 'events');
     return 'application';
   }
 });

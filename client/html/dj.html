@@ -8,9 +8,6 @@
 
 <template name="dj_nav">
   <nav class="dj-nav">
-    <a id="dj-nav-home" data-section="home" class="tab transition-all">
-      Home
-    </a>
     <a id="dj-nav-events" data-section="events" class="tab transition-all">
       Events
     </a>
@@ -25,9 +22,6 @@
 
 <template name="dj_content">
   <div class="dj-content">
-    {{#if currentSectionIs "home"}}
-      <h4>DJ Home</h4>
-    {{/if}}
     {{#if currentSectionIs "events"}}
       {{> events}}
     {{/if}}

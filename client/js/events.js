@@ -17,6 +17,10 @@ if(Meteor.isClient) {
     return GD.events.find({userId: Meteor.userId()}).fetch();
   };
 
+  Template.dj_events.canDeleteEvent = function() {
+    return !!Session.get('currentEvent') && Session.get('currentSection') == 'events';
+  };
+
   Template.dj_events.events({
     'click #create-event-btn': function(e) {
       var input = $('.event-list #new-even-name');
@@ -44,6 +48,18 @@ if(Meteor.isClient) {
         Session.set('currentEvent', eventName);
         var list = GD.playlists.find({userId: Meteor.userId(), event: Session.get('currentEvent')}).fetch();
         Session.set('currentPlaylist', list[0]);
+      }
+    },
+
+    'click .delete': function() {
+      var eventRecord = GD.events.findOne({name: Session.get('currentEvent'), userId: Meteor.userId()});
+
+      GD.events.remove(eventRecord._id);
+      Session.set('currentEvent', null);
+      Session.set('currentPlaylist', null);
+
+      if(eventRecord.playListId) {
+        GD.playlists.remove(eventRecord.playListId);
       }
     }
   });

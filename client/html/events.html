@@ -16,7 +16,9 @@
           <option value="{{name}}">{{name}}</option>
         {{/each}}
       </select>
-
+      {{#if canDeleteEvent}}
+        <button class="btn btn-warning delete">Delete Event</button>
+      {{/if}}
       <div class="input-append">
         <input class="span2" id="new-even-name" type="text" placeholder="Event name">
         <button class="btn btn-primary" type="button" id="create-event-btn">Create</button>
