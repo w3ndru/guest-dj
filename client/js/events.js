@@ -142,7 +142,9 @@ if(Meteor.isClient) {
 
       GD.playlists.insert({userId: userId, 'event': eventName, tracks: playlist});
       Session.set('uploadTracks', playlist);
-      Session.set('currentPlaylist', {tracks: playlist});
+
+      var currentPlaylist = GD.playlists.findOne({userId: userId, 'event': eventName});
+      Session.set('currentPlaylist', currentPlaylist);
     }
   });
 
