@@ -54,12 +54,14 @@ if(Meteor.isClient) {
     'click .delete': function() {
       var eventRecord = GD.events.findOne({name: Session.get('currentEvent'), userId: Meteor.userId()});
 
-      GD.events.remove(eventRecord._id);
-      Session.set('currentEvent', null);
-      Session.set('currentPlaylist', null);
+      if (window.confirm('Remove ' + Session.get('currentEvent') + ' and it\'s playlist?')) {
+        GD.events.remove(eventRecord._id);
+        Session.set('currentEvent', null);
+        Session.set('currentPlaylist', null);
 
-      if(eventRecord.playListId) {
-        GD.playlists.remove(eventRecord.playListId);
+        if(eventRecord.playListId) {
+          GD.playlists.remove(eventRecord.playListId);
+        }
       }
     }
   });
@@ -133,13 +135,14 @@ if(Meteor.isClient) {
       };
     },
 
-    'click button.btn-inverse.save': function(e) {
+    'click button.save': function(e) {
       var eventName = Session.get('currentEvent');
       var userId = Meteor.userId();
       var playlist = Template.dj_view.playListFile;
 
       GD.playlists.insert({userId: userId, 'event': eventName, tracks: playlist});
-      Session.set('uploadTracks', null);
+      Session.set('uploadTracks', playlist);
+      Session.set('currentPlaylist', {tracks: playlist});
     }
   });
 
