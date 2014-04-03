@@ -14,7 +14,7 @@
       letter-spacing: 1px;
       cursor: pointer;
 
-      &:hover, &.active {
+      &.active {
         border-radius: 3px;
         color: whitesmoke;
         background-color: $accent-green;
@@ -25,27 +25,23 @@
 
 @media (orientation:portrait) {
   .playlist-view {
-    padding: 2vh 2vw;
+    padding: 0;
 
     h4 {
-      font-size: 6vw;
       line-height: 100%;
+      padding: 2% 4%;
     }
 
     .playlist-sorting {
-      margin: 3vh 0px;
-      font-size: 4vw;
       line-height: 100%;
+      padding: 2% 4%;
 
       a {
-        padding: 0.5vh 3vw;
         color: #586e75;
         text-decoration: none;
-        font-size: 4vw;
         cursor: pointer;
 
-        &:hover, &.active {
-          border-radius: 2vw;
+        &.active {
           color: whitesmoke;
           background-color: $accent-green;
         }
@@ -58,10 +54,11 @@
       margin: 0;
 
       li {
+        padding-left: 2%;
       }
 
       span {
-        padding: 1.5vh 0;
+        padding: 2% 0;
       }
 
       .artist {
@@ -74,7 +71,6 @@
 
       .request {
         button {
-          font-size: 4vw;
           line-height: 100%;
           padding: 1vw;
           margin: 0;

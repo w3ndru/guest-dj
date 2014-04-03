@@ -20,6 +20,13 @@
 <template name="requests_details">
   <div class="requests-details">
     <ul class="request-list playlist">
+      <li class="labels">
+        <span class="artist truncate">Artist</span>
+        <span class="title truncate">Title</span>
+        <span class="age truncate">First Requested</span>
+        <span class="count truncate">Count</span>
+        <span class="remove">Option</span>
+      </li>
       {{#each requests}}
         <li>
           <span class="artist truncate">{{artist}}</span>
@@ -40,6 +47,11 @@
   <div class="dismissed-tracks">
     <h4>Dismissed Tacks</h4>
     <ul class="dismissed playlist">
+      <li class="labels">
+        <span class="artist truncate">Artist</span>
+        <span class="title truncate">Title</span>
+        <span>Hits Before Reactivate</span>
+      </li>
       {{#each dismissedTracks}}
         <li>
           <span class="artist truncate">{{artist}}</span>

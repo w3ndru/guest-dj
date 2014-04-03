@@ -42,6 +42,11 @@
 
 <template name="playlist_details">
   <ul class="playlist">
+    <li class="labels">
+        <span class="artist truncate">Artist</span>
+        <span class="title truncate">Title</span>
+        <span class="remove">Option</span>
+      </li>
     {{#each tracks}}
       <li class="transition-all">
         <span class="artist truncate">{{artist}}</span>
